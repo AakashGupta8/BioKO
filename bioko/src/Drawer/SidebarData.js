@@ -9,37 +9,37 @@ import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 export const SidebarData = [
   {
     title: "Offene Aufgaben",
-    path: "/",
-    icons: <BarChartIcon />,
+    path: "/xy",
+    icons: <ContentPasteIcon />,
   },
   {
     title: "Analyse",
     path: "/analyse",
-    icons: <ContentPasteIcon />,
+    icons: <BarChartIcon />,
   },
   {
     title: "Double Check",
-    path: "/Produket",
+    path: "/double-check",
     icons: <GroupIcon />,
   },
   {
     title: "Abgeschlossen",
-    path: "/Reagenzien",
+    path: "/Abgeschlossen",
     icons: <CheckBoxIcon />,
   },
   {
     title: "Hilfe",
-    path: "/Anlieferungen",
+    path: "/Hilfe",
     icons: <HelpOutlineIcon />,
   },
   {
     title: "Einstellungen",
-    path: "/Aufbereitung",
+    path: "/Einstellungen",
     icons: <SettingsIcon />,
   },
   {
     title: "Beenden",
-    path: "/Daten",
+    path: "/Beenden",
     icons: <DirectionsRunIcon />,
   },
 ];

@@ -147,7 +147,7 @@ export default function MiniDrawer() {
             {SidebarData.map((text, index) => (
               <ListItem
                 key={text}
-                //   component={Link}
+                component={Link}
                 to={text.path}
                 //   state={{ from: "Mehl" }}
                 disablePadding
