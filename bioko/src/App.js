@@ -15,6 +15,11 @@ import { getAuthHeader, toBase64Browser } from "./utils";
 import { Box } from "@mui/material";
 import Analysis from './Analysis/Analysis';
 import AnalysisResult from './Analysis/AnalysisResult';
+import MiniDrawer from "./Drawer/Minidrawer";
+import { Routes, Route, Link } from "react-router-dom";
+import OffeneAufgaben from "./Drawer/OffeneAufgaben";
+import Login from "./User/Login";
+import ProduktEdit from './Analysis/ProduktEdit';
 
 export const AppContext = createContext({});
 function App() {
@@ -81,16 +86,28 @@ function App() {
       }}
     >
       <AuthenticatedTemplate>
-       
-          
-          <AnalysisResult/>
-          {/*<button  onClick={() => {
+
+        <div className="App">
+          <MiniDrawer />
+          <Routes>
+            <Route exact path="/" element={<Login />} />
+            <Route exact path="/xy" element={<OffeneAufgaben />} />
+            <Route exact path="/Ubersicht" element={<OffeneAufgaben />} />
+            <Route exact path="/analyse" element={<Analysis/>}/>
+            <Route exact path="/analyseEdit" element={<ProduktEdit/>}/>
+            <Route exact path="/analyseResult" element={<AnalysisResult/>}/>
+
+          </Routes>
+        </div>
+
+        {/*<button  onClick={() => {
             // eslint-disable-next-line no-restricted-globals
             if (!confirm("Are you sure, you want to Logout?")) return;
             instance.logout();
+            <AnalysisResult/>
           }}>Logout</button>*/}
 
-       
+
       </AuthenticatedTemplate>
       <UnauthenticatedTemplate>
         <Box p={3}>
@@ -98,7 +115,6 @@ function App() {
         </Box>
       </UnauthenticatedTemplate>
     </AppContext.Provider>
-
   );
 }
 

@@ -8,6 +8,7 @@ import './index.css';
 import { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
 import { msalConfig } from "./authConfig";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const msalInstance = new PublicClientApplication(msalConfig);
 const container = document.getElementById('root');
@@ -16,7 +17,9 @@ const root = createRoot(container);
 root.render(
   <MsalProvider instance={msalInstance}>
     <Provider store={store}>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </Provider>
   </MsalProvider>
 );
