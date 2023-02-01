@@ -1,3 +1,3 @@
 export default function OffeneAufgaben() {
-  return <div>hi</div>;
+  return <div>Table</div>;
 }
