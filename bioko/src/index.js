@@ -5,16 +5,20 @@ import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+import { PublicClientApplication } from "@azure/msal-browser";
+import { MsalProvider } from "@azure/msal-react";
+import { msalConfig } from "./authConfig";
 
+const msalInstance = new PublicClientApplication(msalConfig);
 const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
-  <React.StrictMode>
+  <MsalProvider instance={msalInstance}>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>
+  </MsalProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

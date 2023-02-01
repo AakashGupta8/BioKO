@@ -1,57 +1,104 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
+import {
+  AuthenticatedTemplate,
+  UnauthenticatedTemplate,
+  useMsal,
+  useIsAuthenticated,
+  useMsalAuthentication,
+} from "@azure/msal-react";
+import { InteractionRequiredAuthError, InteractionType } from "@azure/msal-browser";
+import { loginRequest } from "./authConfig";
+import { getAuthHeader, toBase64Browser } from "./utils";
+import { Box } from "@mui/material";
+import Analysis from './Analysis/Analysis';
+import AnalysisResult from './Analysis/AnalysisResult';
 
+export const AppContext = createContext({});
 function App() {
+  const { login, error } = useMsalAuthentication(InteractionType.Redirect, loginRequest);
+
+  React.useEffect(() => {
+    if (error instanceof InteractionRequiredAuthError) {
+      login(InteractionType.Popup, loginRequest);
+    }
+  }, [error, login]);
+
+  const { instance, accounts } = useMsal();
+  const [currAccessToken, setCurrAccessToken] = React.useState(null);
+  const [currIdToken, setCurrIdToken] = React.useState(null);
+  const [expiresOn, setExpiresOn] = React.useState(null);
+  const [currUserId, setCurrUserId] = React.useState(null);
+  const isAuthenticated = useIsAuthenticated();
+  const [graphInfo, setGraphInfo] = React.useState(null);
+  const [profilePicture, setProfilePicture] = React.useState(null);
+
+  const renewSilentToken = async () => {
+    await instance
+      .acquireTokenSilent({ ...loginRequest, account: accounts[0] })
+      .then(({ accessToken, idToken, expiresOn, graphInfo, account, ...rest }) => {
+        setCurrIdToken(idToken);
+        setCurrAccessToken(accessToken);
+        setExpiresOn(expiresOn);
+        setCurrUserId(accounts[0]?.idTokenClaims["https://bayer.com/cwid"]);
+      });
+  };
+  React.useEffect(() => {
+    if (isAuthenticated) return renewSilentToken();
+    instance.ssoSilent(loginRequest);
+  }, [isAuthenticated]);
+
+  React.useEffect(() => {
+    if (!currAccessToken) return;
+    var headers = getAuthHeader(currAccessToken);
+    fetch("https://graph.microsoft.com/v1.0/me", {
+      headers,
+    })
+      .then((resp) => resp.json())
+      .then((r) => {
+        setGraphInfo(r);
+      });
+
+    fetch("https://graph.microsoft.com/v1.0/me/photos/64x64/$value", {
+      headers,
+    })
+      .then((resp) => resp.arrayBuffer())
+      .then((r) => `data:image/jpeg;base64, ${toBase64Browser(r)}`)
+      .then(setProfilePicture)
+      .catch();
+  }, [currAccessToken]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+
+
+    <AppContext.Provider
+      value={{
+        graphInfo,
+        account: accounts[0],
+        profilePicture,
+        currUserId: accounts[0]?.idTokenClaims["https://bayer.com/cwid"],
+      }}
+    >
+      <AuthenticatedTemplate>
+       
+          
+          <AnalysisResult/>
+          {/*<button  onClick={() => {
+            // eslint-disable-next-line no-restricted-globals
+            if (!confirm("Are you sure, you want to Logout?")) return;
+            instance.logout();
+          }}>Logout</button>*/}
+
+       
+      </AuthenticatedTemplate>
+      <UnauthenticatedTemplate>
+        <Box p={3}>
+          <h3>Redirecting ...</h3>
+        </Box>
+      </UnauthenticatedTemplate>
+    </AppContext.Provider>
+
   );
 }
 
