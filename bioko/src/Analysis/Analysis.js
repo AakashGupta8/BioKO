@@ -5,6 +5,7 @@ import { styled } from "@mui/material/styles";
 import "./analysis.css"
 import EditIcon from '@mui/icons-material/Edit';
 import Data from './AnalysisData'
+import { Link } from 'react-router-dom';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -21,7 +22,7 @@ function Analysis() {
                     <Paper className='analysis-options' style={{marginTop:"60px"}}>
                         <Typography className="option-text"> Produkt :DHP
                             <Button>
-                                <EditIcon className='edit' />
+                               <Link to="/analyseEdit"> <EditIcon className='edit' /></Link>
                             </Button>
                         </Typography>
                     </Paper>
@@ -61,7 +62,7 @@ function Analysis() {
                         </Typography>
                     </Paper>
 
-                    <button className='btn-analyse'>Analyse Starten</button>
+                    <Link to="/analyseResult" style={{textDecoration:"none"}}> <button className='btn-analyse'>Analyse Starten</button></Link>
                 </Grid>
 
                 <Grid xs={12} md={4}>

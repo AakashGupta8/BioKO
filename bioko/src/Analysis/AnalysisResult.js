@@ -1,10 +1,10 @@
 import { Box, Grid, Paper, Typography, Button } from '@mui/material'
 import React from 'react'
 import { styled } from "@mui/material/styles";
-
 import "./analysis.css"
 import EditIcon from '@mui/icons-material/Edit';
 import Data from './AnalysisData'
+import { Link } from 'react-router-dom';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -32,7 +32,7 @@ function AnalysisResult() {
                                 <Paper className='analysis-options' style={{ marginTop: "100px" }}>
                                     <Typography className="option-text"> Produkt :DHP
                                         <Button>
-                                            <EditIcon className='edit' />
+                                        <Link to="/analyseEdit"> <EditIcon className='edit' /></Link>
                                         </Button>
                                     </Typography>
                                 </Paper>
