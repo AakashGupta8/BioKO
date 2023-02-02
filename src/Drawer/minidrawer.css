@@ -1,1 +1,10 @@
+.logout-btn {
+  display: flex;
+  justify-content: center;
+}
 
+.logout-popover {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
