@@ -1,7 +1,6 @@
-import React, { createContext } from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { createContext } from "react";
+
+import "./App.css";
 import {
   AuthenticatedTemplate,
   UnauthenticatedTemplate,
@@ -9,21 +8,27 @@ import {
   useIsAuthenticated,
   useMsalAuthentication,
 } from "@azure/msal-react";
-import { InteractionRequiredAuthError, InteractionType } from "@azure/msal-browser";
+import {
+  InteractionRequiredAuthError,
+  InteractionType,
+} from "@azure/msal-browser";
 import { loginRequest } from "./authConfig";
 import { getAuthHeader, toBase64Browser } from "./utils";
-import { Box } from "@mui/material";
-import Analysis from './Analysis/Analysis';
-import AnalysisResult from './Analysis/AnalysisResult';
+import { Box, Grid } from "@mui/material";
+import Analysis from "./Analysis/Analysis";
+import AnalysisResult from "./Analysis/AnalysisResult";
 import MiniDrawer from "./Drawer/Minidrawer";
 import { Routes, Route, Link } from "react-router-dom";
-import OffeneAufgaben from "./Drawer/OffeneAufgaben";
+import OffeneAufgaben from "./OffeneAufgaben/OffeneAufgaben";
 import Login from "./User/Login";
-import ProduktEdit from './Analysis/ProduktEdit';
+import ProduktEdit from "./Analysis/ProduktEdit";
 
 export const AppContext = createContext({});
 function App() {
-  const { login, error } = useMsalAuthentication(InteractionType.Redirect, loginRequest);
+  const { login, error } = useMsalAuthentication(
+    InteractionType.Redirect,
+    loginRequest
+  );
 
   React.useEffect(() => {
     if (error instanceof InteractionRequiredAuthError) {
@@ -43,12 +48,14 @@ function App() {
   const renewSilentToken = async () => {
     await instance
       .acquireTokenSilent({ ...loginRequest, account: accounts[0] })
-      .then(({ accessToken, idToken, expiresOn, graphInfo, account, ...rest }) => {
-        setCurrIdToken(idToken);
-        setCurrAccessToken(accessToken);
-        setExpiresOn(expiresOn);
-        setCurrUserId(accounts[0]?.idTokenClaims["https://bayer.com/cwid"]);
-      });
+      .then(
+        ({ accessToken, idToken, expiresOn, graphInfo, account, ...rest }) => {
+          setCurrIdToken(idToken);
+          setCurrAccessToken(accessToken);
+          setExpiresOn(expiresOn);
+          setCurrUserId(accounts[0]?.idTokenClaims["https://bayer.com/cwid"]);
+        }
+      );
   };
   React.useEffect(() => {
     if (isAuthenticated) return renewSilentToken();
@@ -75,8 +82,6 @@ function App() {
       .catch();
   }, [currAccessToken]);
   return (
-
-
     <AppContext.Provider
       value={{
         graphInfo,
@@ -86,18 +91,34 @@ function App() {
       }}
     >
       <AuthenticatedTemplate>
-
         <div className="App">
-          <MiniDrawer />
-          <Routes>
-            <Route exact path="/" element={<Login />} />
-            <Route exact path="/xy" element={<OffeneAufgaben />} />
-            <Route exact path="/Ubersicht" element={<OffeneAufgaben />} />
-            <Route exact path="/analyse" element={<Analysis/>}/>
-            <Route exact path="/analyseEdit" element={<ProduktEdit/>}/>
-            <Route exact path="/analyseResult" element={<AnalysisResult/>}/>
-
-          </Routes>
+          <Box sx={{ display: "flex", width: "100%" }}>
+            <MiniDrawer />
+            <div
+              style={{
+                paddingTop: "15vh",
+                width: "100%",
+                paddingRight: "1.5%",
+              }}
+            >
+              <Routes>
+                <Route exact path="/" element={<Login />} />
+                <Route
+                  exact
+                  path="/table-analyse"
+                  element={<OffeneAufgaben />}
+                />
+                <Route exact path="/Ubersicht" element={<OffeneAufgaben />} />
+                <Route exact path="/analyse" element={<Analysis />} />
+                <Route exact path="/analyseEdit" element={<ProduktEdit />} />
+                <Route
+                  exact
+                  path="/analyseResult"
+                  element={<AnalysisResult />}
+                />
+              </Routes>
+            </div>
+          </Box>
         </div>
 
         {/*<button  onClick={() => {
@@ -106,8 +127,6 @@ function App() {
             instance.logout();
             <AnalysisResult/>
           }}>Logout</button>*/}
-
-
       </AuthenticatedTemplate>
       <UnauthenticatedTemplate>
         <Box p={3}>

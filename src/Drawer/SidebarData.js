@@ -9,7 +9,7 @@ import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 export const SidebarData = [
   {
     title: "Offene Aufgaben",
-    path: "/xy",
+    path: "/table-analyse",
     icons: <ContentPasteIcon />,
   },
   {
