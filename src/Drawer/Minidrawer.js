@@ -19,6 +19,8 @@ import ListItemText from "@mui/material/ListItemText";
 import BayerLogo from "../Images/bayer-cross-black.png";
 import { SidebarData } from "./SidebarData";
 import { Link, useLocation } from "react-router-dom";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 import "./minidrawer.css";
 import {
   Avatar,
@@ -29,6 +31,7 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const drawerWidth = 240;
 
@@ -195,8 +198,8 @@ export default function MiniDrawer() {
                 {/* <SearchIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} /> */}
                 <TextField
                   id="input-with-sx"
-                  label="suche"
-                  variant="standard"
+                  placeholder="suche"
+                  variant="outlined"
                   size="small"
                   InputProps={{
                     startAdornment: (
@@ -233,7 +236,17 @@ export default function MiniDrawer() {
                     horizontal: "left",
                   }}
                 >
-                  <Typography sx={{ p: 2 }}>Akhil Shaji</Typography>
+                  <Typography
+                    sx={{ width: "40vh", height: "40vh" }}
+                    component="div"
+                  >
+                    <div className="logout-popover">
+                      <Divider />
+                      <div className="logout-btn">
+                        <Button endIcon={<LogoutIcon />}>Logout</Button>
+                      </div>
+                    </div>
+                  </Typography>
                 </Popover>
               </Typography>
             </Toolbar>
