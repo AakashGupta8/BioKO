@@ -213,7 +213,7 @@ export default function MiniDrawer() {
               </Typography>
               <div>
                 <Stack direction="row" spacing={2}>
-                  <Avatar {...stringAvatar("Akhil S")}></Avatar>
+                  <Avatar {...stringAvatar("Aakash Gupta")}></Avatar>
                 </Stack>
               </div>
               <Typography
@@ -223,7 +223,7 @@ export default function MiniDrawer() {
                 component="div"
                 // sx={{ flexGrow: 1 }}
               >
-                {"Akhil Shaji"}
+                {"Aakash Gupta"}
 
                 <ExpandMoreIcon onClick={handleClick} />
                 <Popover
