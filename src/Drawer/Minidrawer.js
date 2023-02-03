@@ -16,12 +16,22 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import BayerLogo from "../Images/bayer-cross-black.png";
 import { SidebarData } from "./SidebarData";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import OffeneAufgaben from "./OffeneAufgaben";
-import Login from "../User/Login";
+import { Link, useLocation } from "react-router-dom";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import "./minidrawer.css";
+import {
+  Avatar,
+  InputAdornment,
+  Popover,
+  Stack,
+  TextField,
+} from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const drawerWidth = 240;
 
@@ -90,9 +100,51 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
+function stringToColor(string) {
+  let hash = 0;
+  let i;
+
+  /* eslint-disable no-bitwise */
+  for (i = 0; i < string.length; i += 1) {
+    hash = string.charCodeAt(i) + ((hash << 5) - hash);
+  }
+
+  let color = "#";
+
+  for (i = 0; i < 3; i += 1) {
+    const value = (hash >> (i * 8)) & 0xff;
+    color += `00${value.toString(16)}`.slice(-2);
+  }
+  /* eslint-enable no-bitwise */
+
+  return color;
+}
+
+function stringAvatar(name) {
+  return {
+    sx: {
+      bgcolor: stringToColor(name),
+    },
+    children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
+  };
+}
+
 export default function MiniDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const openP = Boolean(anchorEl);
+  const id = openP ? "simple-popover" : undefined;
 
   //   let useNavigate = useNavigate();
   const location = useLocation();
@@ -106,87 +158,155 @@ export default function MiniDrawer() {
   };
   if (pathArr[1] !== "Login" && pathArr[1] !== "") {
     return (
-      <Box sx={{ display: "flex" }}>
-        <CssBaseline />
-        <AppBar position="fixed" open={open}>
-          <Toolbar style={{ backgroundColor: "white" }}>
-            <IconButton
-              // color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              sx={{
-                marginRight: 5,
-                ...(open && { display: "none" }),
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography
-              style={{ color: "black" }}
-              variant="h6"
-              noWrap
-              component="div"
-            >
-              Icon
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <Drawer variant="permanent" open={open}>
-          <DrawerHeader>
-            <IconButton onClick={handleDrawerClose}>
-              {theme.direction === "rtl" ? (
-                <ChevronRightIcon />
-              ) : (
-                <ChevronLeftIcon />
-              )}
-            </IconButton>
-          </DrawerHeader>
-          <Divider />
-          <List>
-            {SidebarData.map((text, index) => (
-              <ListItem
-                key={text}
-                component={Link}
-                to={text.path}
-                //   state={{ from: "Mehl" }}
-                disablePadding
-                sx={{ display: "block" }}
+      <div>
+        <Box sx={{ display: "flex" }}>
+          <CssBaseline />
+          <AppBar position="fixed" open={open}>
+            <Toolbar style={{ backgroundColor: "white" }}>
+              <IconButton
+                // color="inherit"
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                edge="start"
+                sx={{
+                  marginRight: 5,
+                  ...(open && { display: "none" }),
+                }}
               >
-                <ListItemButton
-                  // onClick={() => handleListItemClick(text)}
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
+                <MenuIcon />
+              </IconButton>
+
+              <Link to="/" style={{ paddingRight: "2%" }}>
+                <img
+                  src={BayerLogo}
+                  alt="logo"
+                  style={{
+                    height: "5vh",
+                  }}
+                />
+              </Link>
+              <Typography
+                style={{ color: "black" }}
+                // variant="h6"
+                noWrap
+                component="div"
+                sx={{ flexGrow: 1 }}
+              >
+                {/* <Box
+                sx={{ display: "flex", alignItems: "flex-end", flexGrow: 1 }}
+              > */}
+                {/* <SearchIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} /> */}
+                <TextField
+                  id="input-with-sx"
+                  placeholder="suche"
+                  variant="outlined"
+                  size="small"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <SearchIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                {/* </Box> */}
+              </Typography>
+              <div>
+                <Stack direction="row" spacing={2}>
+                  <Avatar {...stringAvatar("Akhil S")}></Avatar>
+                </Stack>
+              </div>
+              <Typography
+                style={{ color: "black", paddingLeft: "1%", display: "flex" }}
+                // variant="h6"
+                noWrap
+                component="div"
+                // sx={{ flexGrow: 1 }}
+              >
+                {"Akhil Shaji"}
+
+                <ExpandMoreIcon onClick={handleClick} />
+                <Popover
+                  id={id}
+                  open={openP}
+                  anchorEl={anchorEl}
+                  onClose={handleClose}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left",
                   }}
                 >
-                  <ListItemIcon
+                  <Typography
+                    sx={{ width: "40vh", height: "40vh" }}
+                    component="div"
+                  >
+                    <div className="logout-popover">
+                      <Divider />
+                      <div className="logout-btn">
+                        <Button endIcon={<LogoutIcon />}>Logout</Button>
+                      </div>
+                    </div>
+                  </Typography>
+                </Popover>
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <Drawer variant="permanent" open={open}>
+            <DrawerHeader>
+              <IconButton onClick={handleDrawerClose}>
+                {theme.direction === "rtl" ? (
+                  <ChevronRightIcon />
+                ) : (
+                  <ChevronLeftIcon />
+                )}
+              </IconButton>
+            </DrawerHeader>
+            <Divider />
+            <List>
+              {SidebarData.map((text, index) => (
+                <ListItem
+                  key={text}
+                  component={Link}
+                  to={text.path}
+                  //   state={{ from: "Mehl" }}
+                  disablePadding
+                  sx={{ display: "block" }}
+                >
+                  <ListItemButton
+                    // onClick={() => handleListItemClick(text)}
                     sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : "auto",
-                      justifyContent: "center",
+                      minHeight: 48,
+                      justifyContent: open ? "initial" : "center",
+                      px: 2.5,
                     }}
                   >
-                    {text.icons}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={text.title}
-                    sx={{ opacity: open ? 1 : 0, color: "#1f1f1f" }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-        </Drawer>
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <DrawerHeader />
-          {/* <Box component="main">
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : "auto",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {text.icons}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={text.title}
+                      sx={{ opacity: open ? 1 : 0, color: "#1f1f1f" }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </Drawer>
+          <Box component="main" sx={{ flexGrow: 1 }}>
+            <DrawerHeader />
+            {/* <Box component="main">
           {location.pathname === "/xy" ? <OffeneAufgaben /> : ""}
           {location.pathname === "/Ub" ? <OffeneAufgaben /> : ""}
         </Box> */}
+          </Box>
         </Box>
-      </Box>
+      </div>
     );
   } else return null;
 }
