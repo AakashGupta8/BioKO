@@ -1,0 +1,32 @@
+.bg-login {
+    background-color: #013e46;
+    background-image: -webkit-linear-gradient(30deg, #013e46 60%, #fff 40%);
+    height: 100vh;
+}
+.btn-login{
+    position: relative;
+    /* right:30%; */
+    top: 50%;
+    margin: 20px auto 20px auto;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: none;
+    text-decoration: none;
+    font-weight: 700;
+    background-color: #b9bdd8;
+}
+.title{
+    top: 38%;
+    position: absolute;
+    right: 12%;
+    font-size: 3rem !important;
+    letter-spacing: 2px;
+    color: yellowgreen;
+}
+.textfield{
+    background-color: #fff;
+    margin: 12px!important;
+    width: 401px;
+    border-radius: 10px;
+}

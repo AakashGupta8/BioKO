@@ -7,7 +7,7 @@ import {
 } from "@mui/x-data-grid";
 
 function CustomToolbar(text) {
-  return (
+  return ( 
     <GridToolbarContainer style={{ justifyContent: "space-between" }}>
       <strong>{text.myCustomProp}</strong>
       <GridToolbarExport />
@@ -16,7 +16,7 @@ function CustomToolbar(text) {
 }
 export default function DataGridTable(props) {
   return (
-    <Box sx={{ height: 400, width: "100%" }}>
+    <Box sx={{ height: 400, width: "100%" ,marginTop:"80px"}}>
       <DataGrid
         rows={props.row}
         columns={props.column}
