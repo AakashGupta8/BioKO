@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 function ProduktEdit() {
     return (
-        <Box component="main" className='analysis' style={{height:"650px"}}>
+        <Box component="main" className='analysis' style={{height:"700px"}}>
             <Grid container spacing={2}>
                 <Grid xs={12} >
                     <Paper className='analysis-options' style={{ marginTop: "150px" }}>

@@ -96,7 +96,7 @@ function App() {
             <MiniDrawer />
             <div
               style={{
-                paddingTop: "15vh",
+              
                 width: "100%",
                 paddingRight: "1.5%",
               }}
