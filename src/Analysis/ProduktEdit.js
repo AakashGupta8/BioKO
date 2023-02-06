@@ -25,7 +25,7 @@ function ProduktEdit() {
                 aria-label="minimum height"
                 minRows={5}
                 placeholder="Anderungsgrund"
-                style={{ width: 500 }} />
+                style={{ width: "40%" }} />
 
             <Link to="/analyse" style={{ textDecoration: "none" }}> <button className='btn-analyse'>Andern</button></Link>
         </Box>

@@ -67,7 +67,7 @@ function Analysis() {
 
                 <Grid xs={12} md={4}>
                     <Box component="main" className='img-box'>
-                        <Grid container spacing={2} style={{margin:"14px"}} >
+                        <Grid container spacing={2} style={{margin:"14px 0px"}} >
 
                             {
                                 Data.map((item) => {
