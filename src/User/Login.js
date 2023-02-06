@@ -2,16 +2,17 @@ import { Link } from "react-router-dom";
 import './login.css'
 import BayerLogo from "../Images/bayer-cross-black.png";
 import { Box, TextField, Typography } from "@mui/material";
-
+import { useWindowWidth } from "../hooks/useWindowWidth";
 export default function Login() {
+  const { isMobile } = useWindowWidth();
   return (
-    <div className='bg-login' style={{ display: "flex" }}>
-      <div style={{ flex: "0.5", position: "absolute", top: "36%", left: "20%" }}>
+    <div className={!isMobile?"bg-login":"bg-login-mob"} style={{ display: "flex" }}>
+      <div  className={!isMobile?"login-form":"login-form-mob"} >
         <Box>
-          <TextField id="filled-basic" label="Username" variant="outlined" className='textfield' />
+          <TextField id="filled-basic" label="Username" variant="outlined"  className={!isMobile?"textfield":"textfield-mob"} />
         </Box>
         <Box>
-          <TextField id="filled-basic" label="PassWord" variant="outlined" className='textfield' />
+          <TextField id="filled-basic" label="PassWord" variant="outlined"  className={!isMobile?"textfield":"textfield-mob"} />
 
         </Box>
         <div>
@@ -21,14 +22,8 @@ export default function Login() {
       <div style={{ flex: "0.5" }}>
         <img src={BayerLogo}
           alt="logo"
-          style={{
-            height: "14vh",
-            top: "22%",
-            right: "13%",
-            position: "absolute",
-
-        }} />
-        <Typography className="title">BioKO</Typography>
+          className={!isMobile?"login-logo":"login-logo-mob"} />
+        <Typography className={!isMobile?"title":"title-mob"}>BioKO</Typography>
       </div>
     </div>
 
