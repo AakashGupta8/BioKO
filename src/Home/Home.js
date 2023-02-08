@@ -146,9 +146,15 @@ export default function Home() {
                     );
                   })
                 ) : (
-                  <div style={{ justifyContent: "center", display: "flex" }}>
-                    {" "}
-                    Please upload some images
+                  <div
+                    style={{
+                      margin: "auto",
+                      padding: "25vh 0",
+                      color: "#cc0000",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Kein Bild verfügbar
                   </div>
                 )}
                 {/* {preview.map((item) => {

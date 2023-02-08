@@ -99,10 +99,10 @@ function AnalysisData() {
         >
           <Box
             sx={{
-              height: 700,
+              height: 500,
               width: "100%",
               "& .super-app-theme--header": {
-                backgroundColor: "#0091c8",
+                backgroundColor: "#005879",
               },
             }}
           >

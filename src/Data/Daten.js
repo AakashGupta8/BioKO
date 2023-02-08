@@ -20,7 +20,7 @@ function Daten() {
     <Accordion
       expanded={expanded === "panel2"}
       onChange={handleChange("panel2")}
-      style={{ backgroundColor: "#5eb346" }}
+      style={{ backgroundColor: "#004422" }}
     >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
@@ -28,7 +28,7 @@ function Daten() {
         id="panel1bh-header"
       >
         <Typography
-          sx={{ flexShrink: 0, paddingRight: "1%", fontWeight: "bold" }}
+          sx={{ flexShrink: 0, paddingRight: "1%", fontWeight: "bold", color: "#fff" }}
         >
           Analysisdetails
         </Typography>
