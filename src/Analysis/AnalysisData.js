@@ -3,7 +3,7 @@ const Data = [
         id: "1",
         img: "https://img.freepik.com/free-photo/blood-splatters-white-surface_53876-95007.jpg?w=2000",
         result:"Positive",
-        img_name:"Image7",
+        img_name:"Image1",
         img_description:"Description1",
 
     }, {

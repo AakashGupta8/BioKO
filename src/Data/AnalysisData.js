@@ -44,11 +44,11 @@ function CustomToolbar() {
       headerClassName: "super-app-theme--header",
       flex: 1,
       width: 160,
-      renderCell: (params) => {
-        if (params.value !== null) {
-          return params.value;
-        } else return "NA";
-      },
+      // renderCell: (params) => {
+      //   if (params.value !== null) {
+      //     return params.value;
+      //   } else return "NA";
+      // },
     },
     {
       field: "img_description",

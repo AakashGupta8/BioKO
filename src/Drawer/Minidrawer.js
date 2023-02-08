@@ -172,7 +172,7 @@ export default function MiniDrawer() {
                 <MenuIcon />
               </IconButton>
 
-              <Link to="/analyse" style={{ paddingRight: "2%" }}>
+              <Link to="/home" style={{ paddingRight: "2%" }}>
                 <img
                   src={BayerLogo}
                   alt="logo"
