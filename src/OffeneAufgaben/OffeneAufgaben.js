@@ -1,3 +1,4 @@
+import { Paper } from "@mui/material";
 import DataGrid from "../DataGrid/DataGridTable";
 const columns = [
   //   { field: "id", headerName: "ID", flex: 1 },
@@ -85,12 +86,12 @@ const rows = [
 
 export default function OffeneAufgaben() {
   return (
-    <div>
+    <Paper elevation={3}>
       <DataGrid
         row={rows}
         column={columns}
         name={"Zusammenfassung - Analysen"}
       />
-    </div>
+    </Paper>
   );
 }

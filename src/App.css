@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+* {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+}
+
+.MuiTypography-root{
+  font-family: "Roboto", Arial, Helvetica, sans-serif !important;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
