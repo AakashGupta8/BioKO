@@ -22,6 +22,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import OffeneAufgaben from "./OffeneAufgaben/OffeneAufgaben";
 import Login from "./User/Login";
 import ProduktEdit from "./Analysis/ProduktEdit";
+import Home from "./Home/Home";
 import Daten from "./Data/Daten";
 
 export const AppContext = createContext({});
@@ -84,7 +85,7 @@ function App() {
   }, [currAccessToken]);
   return (
     <AppContext.Provider
-      value={{ 
+      value={{
         graphInfo,
         account: accounts[0],
         profilePicture,
@@ -93,11 +94,17 @@ function App() {
     >
       <AuthenticatedTemplate>
         <div className="App">
-          <Box sx={{ display: "flex", width: "100%", height: "100vh", backgroundColor: "#6c7e94" }}>
+          <Box
+            sx={{
+              display: "flex",
+              width: "100%",
+              height: "100vh",
+              backgroundColor: "#6c7e94",
+            }}
+          >
             <MiniDrawer />
             <div
               style={{
-              
                 width: "100%",
                 paddingRight: "1.5%",
               }}
@@ -109,7 +116,7 @@ function App() {
                   path="/table-analyse"
                   element={<OffeneAufgaben />}
                 />
-                <Route exact path="/Ubersicht" element={<OffeneAufgaben />} />
+                <Route exact path="/Home" element={<Home />} />
                 <Route exact path="/analyse" element={<Analysis />} />
                 <Route exact path="/analyseEdit" element={<ProduktEdit />} />
                 <Route exact path="/daten" element={<Daten />} />
