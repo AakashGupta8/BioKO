@@ -30,7 +30,7 @@ function CustomToolbar() {
               style={{ color: "black", textDecoration: "none" }}
               to={"/analyse"}
             >
-             <img className='sample-img' src={params.value} alt="img"/>
+             <img className='sample-image' src={params.value} alt="img"/>
             </Link>
           );
         } else return "NA";
