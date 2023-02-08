@@ -6,8 +6,15 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import SettingsIcon from "@mui/icons-material/Settings";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import DataThresholdingIconTwoTone from "@mui/icons-material/DataThresholdingTwoTone";
+import HomeIcon from '@mui/icons-material/Home';
+import TimelineIcon from '@mui/icons-material/Timeline';
 
 export const SidebarData = [
+  {
+    title: "Home",
+    path: "/Home",
+    icons: <HomeIcon />,
+  },
   {
     title: "Offene Aufgaben",
     path: "/table-analyse",
@@ -46,6 +53,6 @@ export const SidebarData = [
   {
     title: "Daten",
     path: "/daten",
-    icons: <DataThresholdingIconTwoTone />,
+    icons: <TimelineIcon />,
   },
 ];
