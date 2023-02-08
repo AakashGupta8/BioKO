@@ -22,13 +22,7 @@ import { Link, useLocation } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import "./minidrawer.css";
-import {
-  Avatar,
-  InputAdornment,
-  Popover,
-  Stack,
-  TextField,
-} from "@mui/material";
+import { Avatar, InputAdornment, Popover, Stack, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -185,6 +179,7 @@ export default function MiniDrawer() {
                   }}
                 />
               </Link>
+              <Typography variant="h4" noWrap component="div" style={{ color: "#5eb346" }}>BioKo</Typography>
               <Typography
                 style={{ color: "black" }}
                 // variant="h6"
@@ -197,7 +192,7 @@ export default function MiniDrawer() {
                   placeholder="suche"
                   variant="outlined"
                   size="small"
-                  style={{width: "50%"}}
+                  style={{ width: "50%" }}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -233,10 +228,7 @@ export default function MiniDrawer() {
                     horizontal: "left",
                   }}
                 >
-                  <Typography
-                    sx={{ width: "40vh", height: "40vh" }}
-                    component="div"
-                  >
+                  <Typography sx={{ width: "40vh", height: "40vh" }} component="div">
                     <div className="logout-popover">
                       <Divider />
                       <div className="logout-btn">
@@ -251,11 +243,7 @@ export default function MiniDrawer() {
           <Drawer variant="permanent" open={open}>
             <DrawerHeader>
               <IconButton onClick={handleDrawerClose}>
-                {theme.direction === "rtl" ? (
-                  <ChevronRightIcon />
-                ) : (
-                  <ChevronLeftIcon />
-                )}
+                {theme.direction === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
               </IconButton>
             </DrawerHeader>
             <Divider />
