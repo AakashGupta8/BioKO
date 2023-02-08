@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Box, Paper, Typography, Grid, Button } from "@mui/material";
+import "./home.css";
 
 const MAX_COUNT = 8;
 export default function Home() {
@@ -92,22 +93,24 @@ export default function Home() {
     <div style={{ marginTop: "80px" }}>
       <Grid container>
         <Grid item xs={4}>
-          <Button
-            variant="contained"
-            component="label"
-            style={{ marginTop: "50%" }}
-          >
-            Upload File
-            <input
-              type="file"
-              hidden
-              multiple
-              accept="image/jpeg,image/png,"
-              onChange={handleFileEvent}
-            ></input>
-          </Button>
+          <div style={{ marginTop: "50%" }}>
+            <Button variant="contained" component="label" style={{ marginRight: "2%" }}>
+              Hochladen
+              <input
+                type="file"
+                hidden
+                multiple
+                accept="image/jpeg,image/png,"
+                onChange={handleFileEvent}
+              ></input>
+            </Button>
+
+            <Button variant="contained" component="label">
+              Analysen
+            </Button>
+          </div>
         </Grid>
-        <Grid item xs={8}>
+        <Grid item xs={6}>
           <Box
             sx={{
               display: "flex",
@@ -120,28 +123,24 @@ export default function Home() {
             }}
           >
             <Paper elevation={3}>
-              <Grid
-                container
-                spacing={2}
-                style={{ margin: "14px 0px", width: "100%" }}
-              >
+              <Grid container spacing={2} style={{ margin: "14px 0px", width: "100%" }}>
                 {preview.length > 0 ? (
                   preview.map((item) => {
                     return (
-                      <Grid item xs={3}>
+                      <Grid item xs={6}>
                         <img
-                          className="sample-img"
+                          className="upload-img"
                           src={item}
                           href={item}
-                          style={{ marginRight: "10%" }}
-                          onClick={(e) => download(e)}
-                          target="_blank"
-                          download="file"
-                          alt=""
                           style={{
+                            marginRight: "10%",
                             cursor: "pointer",
                             border: "1px solid #1f1f1f",
                           }}
+                          onClick={(e) => download(e)}
+                          target="_blank"
+                          download="file"
+                          alt="img"
                         />
                       </Grid>
                     );

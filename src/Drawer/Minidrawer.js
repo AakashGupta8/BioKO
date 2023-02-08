@@ -172,7 +172,7 @@ export default function MiniDrawer() {
                 <MenuIcon />
               </IconButton>
 
-              <Link to="/analyse" style={{ paddingRight: "2%" }}>
+              <Link to="/home" style={{ paddingRight: "2%" }}>
                 <img
                   src={BayerLogo}
                   alt="logo"
@@ -235,11 +235,12 @@ export default function MiniDrawer() {
                   <Typography
                     sx={{ width: "25vh", height: "6vh" }}
                     component="div"
+                    style={{border: "1px solid #1f1f1f", borderRadius: "5px"}}
                   >
                     <div className="logout-popover">
                   
                       <div className="logout-btn">
-                        <Button endIcon={<LogoutIcon />}>Logout</Button>
+                        <Button endIcon={<LogoutIcon />} style={{color: "black"}}>Ausloggen</Button>
                       </div>
                     </div>
                   </Typography>
