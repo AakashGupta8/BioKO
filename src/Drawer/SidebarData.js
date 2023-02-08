@@ -5,6 +5,7 @@ import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import SettingsIcon from "@mui/icons-material/Settings";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
+import DataThresholdingIconTwoTone from "@mui/icons-material/DataThresholdingTwoTone";
 
 export const SidebarData = [
   {
@@ -41,5 +42,10 @@ export const SidebarData = [
     title: "Beenden",
     path: "/Beenden",
     icons: <DirectionsRunIcon />,
+  },
+  {
+    title: "Daten",
+    path: "/daten",
+    icons: <DataThresholdingIconTwoTone />,
   },
 ];

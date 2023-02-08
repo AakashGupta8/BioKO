@@ -22,6 +22,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import OffeneAufgaben from "./OffeneAufgaben/OffeneAufgaben";
 import Login from "./User/Login";
 import ProduktEdit from "./Analysis/ProduktEdit";
+import Daten from "./Data/Daten";
 
 export const AppContext = createContext({});
 function App() {
@@ -83,7 +84,7 @@ function App() {
   }, [currAccessToken]);
   return (
     <AppContext.Provider
-      value={{
+      value={{ 
         graphInfo,
         account: accounts[0],
         profilePicture,
@@ -111,6 +112,7 @@ function App() {
                 <Route exact path="/Ubersicht" element={<OffeneAufgaben />} />
                 <Route exact path="/analyse" element={<Analysis />} />
                 <Route exact path="/analyseEdit" element={<ProduktEdit />} />
+                <Route exact path="/daten" element={<Daten />} />
                 <Route
                   exact
                   path="/analyseResult"
