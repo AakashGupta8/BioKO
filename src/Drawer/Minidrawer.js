@@ -20,6 +20,7 @@ import BayerLogo from "../Images/bayer-cross-black.png";
 import { SidebarData } from "./SidebarData";
 import { Link, useLocation } from "react-router-dom";
 import Button from "@mui/material/Button";
+import { AppContext } from "../App";
 import Grid from "@mui/material/Grid";
 import "./minidrawer.css";
 import { Avatar, InputAdornment, Popover, Stack, TextField } from "@mui/material";
@@ -124,6 +125,7 @@ function stringAvatar(name) {
 }
 
 export default function MiniDrawer() {
+  const { graphInfo, account, profilePicture } = React.useContext(AppContext);
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -205,9 +207,10 @@ export default function MiniDrawer() {
               </Typography>
               <div>
                 <Stack direction="row" spacing={2}>
-                  <Avatar {...stringAvatar("Aakash Gupta")}></Avatar>
+                <Avatar src={profilePicture} />
                 </Stack>
               </div>
+              
               <Typography
                 style={{ color: "black", paddingLeft: "1%", display: "flex" }}
                 // variant="h6"
@@ -215,7 +218,7 @@ export default function MiniDrawer() {
                 component="div"
                 // sx={{ flexGrow: 1 }}
               >
-                {"Aakash Gupta"}
+              {account?.name}
 
                 <ExpandMoreIcon onClick={handleClick} />
                 <Popover
@@ -227,10 +230,14 @@ export default function MiniDrawer() {
                     vertical: "bottom",
                     horizontal: "left",
                   }}
+                 
                 >
-                  <Typography sx={{ width: "40vh", height: "40vh" }} component="div">
+                  <Typography
+                    sx={{ width: "25vh", height: "6vh" }}
+                    component="div"
+                  >
                     <div className="logout-popover">
-                      <Divider />
+                  
                       <div className="logout-btn">
                         <Button endIcon={<LogoutIcon />}>Logout</Button>
                       </div>
@@ -238,6 +245,7 @@ export default function MiniDrawer() {
                   </Typography>
                 </Popover>
               </Typography>
+              
             </Toolbar>
           </AppBar>
           <Drawer variant="permanent" open={open}>

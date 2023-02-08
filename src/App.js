@@ -23,6 +23,7 @@ import OffeneAufgaben from "./OffeneAufgaben/OffeneAufgaben";
 import Login from "./User/Login";
 import ProduktEdit from "./Analysis/ProduktEdit";
 import Home from "./Home/Home";
+import Daten from "./Data/Daten";
 
 export const AppContext = createContext({});
 function App() {
@@ -118,6 +119,7 @@ function App() {
                 <Route exact path="/Home" element={<Home />} />
                 <Route exact path="/analyse" element={<Analysis />} />
                 <Route exact path="/analyseEdit" element={<ProduktEdit />} />
+                <Route exact path="/daten" element={<Daten />} />
                 <Route
                   exact
                   path="/analyseResult"
