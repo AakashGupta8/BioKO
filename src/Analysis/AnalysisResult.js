@@ -19,20 +19,20 @@ function AnalysisResult() {
             <Grid container spacing={2}>
                 <Grid xs={12} md={7.5}>
                     <Box component="main" >
-                        <Grid container spacing={2} style={{ margin: "14px" }} >
-                        <Grid xs={12} md={6}>
-                        <Typography className="success"> Probe 272410026
-                         Steril
-                        </Typography>
-                        <Typography className='reject'> Foto-Nr-9,10 ist Kontaminiert
-                        </Typography>
-                        <button className='btn-analyse'>Angaben bestatigen</button>
-                        </Grid>
-                            <Grid xs={12} md={6}>
+                        <Grid container spacing={2} style={{ margin: "14px 0px" }} >
+                            <Grid xs={10} md={6}>
+                                <Typography className="success"> Probe 272410026
+                                    Steril
+                                </Typography>
+                                <Typography className='reject'> Foto-Nr-9,10 ist Kontaminiert
+                                </Typography>
+                                <button className='btn-analyse'>Angaben bestatigen</button>
+                            </Grid>
+                            <Grid xs={10} md={6}>
                                 <Paper className='analysis-options' style={{ marginTop: "100px" }}>
                                     <Typography className="option-text"> Produkt :DHP
                                         <Button>
-                                        <Link to="/analyseEdit"> <EditIcon className='edit' /></Link>
+                                            <Link to="/analyseEdit"> <EditIcon className='edit' /></Link>
                                         </Button>
                                     </Typography>
                                 </Paper>
@@ -76,17 +76,17 @@ function AnalysisResult() {
                     </Box>
 
 
-                   
+
                 </Grid>
 
                 <Grid xs={12} md={4}>
                     <Box component="main" className='img-box'>
-                        <Grid container spacing={2} style={{ margin: "14px" }} >
+                        <Grid container spacing={2} style={{margin:"14px 0px" ,width:"100%"}} >
 
                             {
                                 Data.map((item) => {
                                     return <Grid item xs={5} style={{ margin: "0px 10px" }} >
-                                        <img className={item.result == "Positive"?"sample-img-success":"sample-img-reject"}
+                                        <img className={item.result == "Positive" ? "sample-img-success" : "sample-img-reject"}
                                             src={item.img} />
                                     </Grid>
                                 })

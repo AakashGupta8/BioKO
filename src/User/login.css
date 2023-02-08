@@ -3,6 +3,24 @@
     background-image: -webkit-linear-gradient(30deg, #013e46 60%, #fff 40%);
     height: 100vh;
 }
+.bg-login-mob {
+    background-color: #013e46;
+    background-image: -webkit-linear-gradient(39deg, #013e46 65%, #fff 40%);
+    height: 100vh;
+}
+.login-logo{
+    top:22%;
+    height:14vh;
+    right: 13%;
+    position: absolute;
+
+}
+.login-logo-mob{
+    top:6%;
+    height:14vh;
+    right: 9%;
+    position: absolute;   
+}
 .btn-login{
     position: relative;
     /* right:30%; */
@@ -24,9 +42,35 @@
     letter-spacing: 2px;
     color: yellowgreen;
 }
+.title-mob{
+    top: 22%;
+    position: absolute;
+    right: 6%;
+    font-size: 3rem !important;
+    letter-spacing: 2px;
+    color: yellowgreen;
+}
 .textfield{
     background-color: #fff;
     margin: 12px!important;
-    width: 401px;
+    width: 400px;
     border-radius: 10px;
+}
+.textfield-mob{
+    background-color: #fff;
+    margin: 12px!important;
+    width: 100%;
+    border-radius: 10px;
+}
+.login-form{
+    flex: 0.5;
+    position: absolute;
+    top: 36%;
+    left: 20%;
+}
+.login-form-mob{
+    flex: 0.5;
+    position: absolute;
+    top: 38%;
+    left: 8%;
 }
