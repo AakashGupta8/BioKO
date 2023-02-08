@@ -94,7 +94,7 @@ function App() {
     >
       <AuthenticatedTemplate>
         <div className="App">
-          <Box
+          {/* <Box
             sx={{
               display: "flex",
               width: "100%",
@@ -108,10 +108,11 @@ function App() {
                 width: "100%",
                 paddingRight: "1.5%",
               }}
-            >
-              <Routes>
-                <Route exact path="/" element={<Login />} />
-                <Route
+            > */}
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/user/*" element={<MiniDrawer />} />
+            {/* <Route
                   exact
                   path="/table-analyse"
                   element={<OffeneAufgaben />}
@@ -124,10 +125,10 @@ function App() {
                   exact
                   path="/analyseResult"
                   element={<AnalysisResult />}
-                />
-              </Routes>
-            </div>
-          </Box>
+                /> */}
+          </Routes>
+          {/* </div>
+          </Box> */}
         </div>
 
         {/*<button  onClick={() => {

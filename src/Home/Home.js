@@ -90,11 +90,11 @@ export default function Home() {
   }
 
   return (
-    <div style={{ marginTop: "80px" }}>
+    <div>
       <Grid container>
         <Grid item xs={4}>
           <div style={{ marginTop: "50%" }}>
-            <Button variant="contained" component="label" style={{ marginRight: "2%" }}>
+            <Button variant="contained" component="label">
               Hochladen
               <input
                 type="file"
@@ -123,7 +123,11 @@ export default function Home() {
             }}
           >
             <Paper elevation={3}>
-              <Grid container spacing={2} style={{ margin: "14px 0px", width: "100%" }}>
+              <Grid
+                container
+                spacing={2}
+                style={{ margin: "14px 0px", width: "100%" }}
+              >
                 {preview.length > 0 ? (
                   preview.map((item) => {
                     return (
