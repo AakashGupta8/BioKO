@@ -176,7 +176,7 @@ export default function MiniDrawer() {
                 <MenuIcon />
               </IconButton>
 
-              <Link to="/" style={{ paddingRight: "2%" }}>
+              <Link to="/analyse" style={{ paddingRight: "2%" }}>
                 <img
                   src={BayerLogo}
                   alt="logo"
@@ -192,15 +192,12 @@ export default function MiniDrawer() {
                 component="div"
                 sx={{ flexGrow: 1 }}
               >
-                {/* <Box
-                sx={{ display: "flex", alignItems: "flex-end", flexGrow: 1 }}
-              > */}
-                {/* <SearchIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} /> */}
                 <TextField
                   id="input-with-sx"
                   placeholder="suche"
                   variant="outlined"
                   size="small"
+                  style={{width: "50%"}}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
