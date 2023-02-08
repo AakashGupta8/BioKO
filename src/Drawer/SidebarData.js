@@ -5,7 +5,6 @@ import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import SettingsIcon from "@mui/icons-material/Settings";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
-import DataThresholdingIconTwoTone from "@mui/icons-material/DataThresholdingTwoTone";
 import HomeIcon from "@mui/icons-material/Home";
 import TimelineIcon from "@mui/icons-material/Timeline";
 

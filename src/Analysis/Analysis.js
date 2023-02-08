@@ -7,13 +7,13 @@ import EditIcon from "@mui/icons-material/Edit";
 import Data from "./AnalysisData";
 import { Link } from "react-router-dom";
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  // padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
+// const Item = styled(Paper)(({ theme }) => ({
+//   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+//   ...theme.typography.body2,
+//   // padding: theme.spacing(1),
+//   textAlign: "center",
+//   color: theme.palette.text.secondary,
+// }));
 function Analysis() {
   return (
     <Box component="main" className="analysis">
@@ -74,7 +74,7 @@ function Analysis() {
             </Typography>
           </Paper>
 
-          <Link to="/analyseResult" style={{ textDecoration: "none" }}>
+          <Link to="/user/analyseResult" style={{ textDecoration: "none" }}>
             {" "}
             <button className="btn-analyse">Analyse Starten</button>
           </Link>
@@ -90,7 +90,7 @@ function Analysis() {
               {Data.map((item) => {
                 return (
                   <Grid item xs={5} style={{ margin: "0px 10px" }}>
-                    <img className="sample-img" src={item.img} />
+                    <img className="sample-img" src={item.img} alt="" />
                   </Grid>
                 );
               })}

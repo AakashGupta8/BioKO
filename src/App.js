@@ -14,16 +14,10 @@ import {
 } from "@azure/msal-browser";
 import { loginRequest } from "./authConfig";
 import { getAuthHeader, toBase64Browser } from "./utils";
-import { Box, Grid } from "@mui/material";
-import Analysis from "./Analysis/Analysis";
-import AnalysisResult from "./Analysis/AnalysisResult";
+import { Box } from "@mui/material";
 import MiniDrawer from "./Drawer/Minidrawer";
-import { Routes, Route, Link } from "react-router-dom";
-import OffeneAufgaben from "./OffeneAufgaben/OffeneAufgaben";
+import { Routes, Route } from "react-router-dom";
 import Login from "./User/Login";
-import ProduktEdit from "./Analysis/ProduktEdit";
-import Home from "./Home/Home";
-import Daten from "./Data/Daten";
 
 export const AppContext = createContext({});
 function App() {
