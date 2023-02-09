@@ -26,8 +26,8 @@
     /* right:30%; */
     top: 50%;
     margin: 20px auto 20px auto;
-    padding: 15px 30px;
-    font-size: 1.2rem;
+    padding: 5px 30px;
+    font-size: 1rem;
     border-radius: 10px;
     border: none;
     text-decoration: none;
@@ -55,7 +55,7 @@
 .title{
     top: 40%;
     position: absolute;
-    right: 25%;
+    right: 27%;
     /* font-size: 3rem !important; */
     letter-spacing: 2px;
     color: yellowgreen;
