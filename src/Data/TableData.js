@@ -68,26 +68,26 @@ const Data = [
 
     {
         id: "201",
-        img: Image1,
-        result:"Negative",
+        img: Image2,
+        result:"Positive",
         img_name:"Bild11",
         img_description:"Beschreibung11",
 
     }, {
         id: "202",
-        img: Image2,
-        result:"Positive",
+        img: Image1,
+        result:"Negative",
         img_name:"Bild12",
         img_description:"Beschreibung12",
     }, {
         id: "203",
-        img: Image2,
-        result:"Positive",
+        img: Image1,
+        result:"Negative",
         img_name:"Bild13",
         img_description:"Beschreibung13",
     }, {
         id: "204",
-        img: Image3,
+        img: Image2,
         result:"Positive",
         img_name:"Bild14",
         img_description:"Beschreibung14",

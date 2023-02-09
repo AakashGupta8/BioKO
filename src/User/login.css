@@ -33,6 +33,7 @@
     text-decoration: none;
     font-weight: 700;
     background-color: #677F8F;
+    cursor: pointer;
 }
 .title1{
     top: 46%;
