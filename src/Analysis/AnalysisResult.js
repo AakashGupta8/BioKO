@@ -86,7 +86,7 @@ function AnalysisResult() {
                             {
                                 Data.map((item) => {
                                     return <Grid item xs={5} style={{ margin: "0px 10px" }} >
-                                        <img className={item.result == "Positive" ? "sample-img-success" : "sample-img-reject"}
+                                        <img className={item.result !== "Positive" ? "sample-img-success" : "sample-img-reject"}
                                             src={item.img} />
                                     </Grid>
                                 })
