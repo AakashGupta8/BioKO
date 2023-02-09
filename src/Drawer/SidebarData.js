@@ -5,15 +5,10 @@ import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import SettingsIcon from "@mui/icons-material/Settings";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
-import HomeIcon from "@mui/icons-material/Home";
+import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import TimelineIcon from "@mui/icons-material/Timeline";
 
 export const SidebarData = [
-  {
-    title: "Home",
-    path: "Home",
-    icons: <HomeIcon />,
-  },
   {
     title: "Offene Aufgaben",
     path: "table-analyse",
@@ -48,10 +43,5 @@ export const SidebarData = [
     title: "Beenden",
     path: "Beenden",
     icons: <DirectionsRunIcon />,
-  },
-  {
-    title: "Daten",
-    path: "daten",
-    icons: <TimelineIcon />,
   },
 ];
