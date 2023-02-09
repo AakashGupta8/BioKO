@@ -1,21 +1,40 @@
-import { Paper } from "@mui/material";
+import { Paper, Box } from "@mui/material";
 import DataGrid from "../DataGrid/DataGridTable";
+import { Link } from "react-router-dom";
 const columns = [
   //   { field: "id", headerName: "ID", flex: 1 },
   {
+    field: "work_id",
+    renderHeader: () => <strong>{"Work Order ID"}</strong>,
+    flex: 1,
+    editable: true,
+    headerClassName: "super-app-theme--header",
+    renderCell: (params) => (
+      <Link
+        style={{ color: "black", textDecoration: "none" }}
+        to={"/user/analyse"}
+      >
+        {params.value}
+      </Link>
+    ),
+  },
+  {
     field: "produkt",
+    headerClassName: "super-app-theme--header",
     renderHeader: () => <strong>{"PRODUKT"}</strong>,
     flex: 1,
     editable: true,
   },
   {
     field: "probe",
+    headerClassName: "super-app-theme--header",
     renderHeader: () => <strong>{"PROBE"}</strong>,
     flex: 1,
     editable: true,
   },
   {
     field: "fermenter",
+    headerClassName: "super-app-theme--header",
     renderHeader: () => <strong>{"FERMENTER"}</strong>,
     type: "number",
     flex: 1,
@@ -23,6 +42,7 @@ const columns = [
   },
   {
     field: "stunde",
+    headerClassName: "super-app-theme--header",
     renderHeader: () => <strong>{"STUNDE"}</strong>,
     type: "number",
     flex: 1,
@@ -30,6 +50,7 @@ const columns = [
   },
   {
     field: "probenId",
+    headerClassName: "super-app-theme--header",
     renderHeader: () => <strong>{"PROBEN-ID"}</strong>,
     type: "number",
     flex: 1,
@@ -37,6 +58,7 @@ const columns = [
   },
   {
     field: "poNr",
+    headerClassName: "super-app-theme--header",
     renderHeader: () => <strong>{"PO-NR"}</strong>,
     type: "number",
     flex: 1,
@@ -44,6 +66,7 @@ const columns = [
   },
   {
     field: "aktion",
+    headerClassName: "super-app-theme--header",
     renderHeader: () => <strong>{"AKTION"}</strong>,
     type: "number",
     flex: 1,
@@ -54,6 +77,7 @@ const columns = [
 const rows = [
   {
     id: 1,
+    work_id: "101",
     produkt: "DHP",
     probe: "JNormalon",
     fermenter: "HF6",
@@ -64,6 +88,7 @@ const rows = [
   },
   {
     id: 2,
+    work_id: "102",
     produkt: "ADD",
     probe: "Normal",
     fermenter: "HF3",
@@ -74,6 +99,7 @@ const rows = [
   },
   {
     id: 3,
+    work_id: "103",
     produkt: "DHP",
     probe: "Bestatigung",
     fermenter: "ZF6",
@@ -86,12 +112,24 @@ const rows = [
 
 export default function OffeneAufgaben() {
   return (
-    <Paper elevation={3}>
-      <DataGrid
-        row={rows}
-        column={columns}
-        name={"Zusammenfassung - Analysen"}
-      />
-    </Paper>
+    <div style={{ padding: "2%" }}>
+      <Paper elevation={3}>
+        <Box
+          sx={{
+            height: "80vh",
+            width: "100%",
+            "& .super-app-theme--header": {
+              backgroundColor: "#0091df",
+            },
+          }}
+        >
+          <DataGrid
+            row={rows}
+            column={columns}
+            name={"Zusammenfassung - Analysen"}
+          />
+        </Box>
+      </Paper>
+    </div>
   );
 }
