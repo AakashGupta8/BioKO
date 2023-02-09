@@ -18,8 +18,16 @@ function CustomToolbar() {
 
 const columns = [
   {
+    field: "id",
+    headerName: "Id",
+    renderHeader: () => <strong>{"Ausweis"}</strong>,
+    headerClassName: "super-app-theme--header",
+    flex: 1,
+    width: 120,
+  },
+  {
     field: "img",
-    renderHeader: () => <strong>{"Image"}</strong>,
+    renderHeader: () => <strong>{"Bild"}</strong>,
     headerClassName: "super-app-theme--header",
     flex: 1,
     width: 150,
@@ -28,7 +36,7 @@ const columns = [
         return (
           <Link
             style={{ color: "black", textDecoration: "none" }}
-            to={"/analyse"}
+            to={"/user/analyse"}
           >
             <img className="sample-image" src={params.value} alt="img" />
           </Link>
@@ -40,7 +48,7 @@ const columns = [
   {
     field: "img_name",
     headerName: "Image Name",
-    renderHeader: () => <strong>{"Image Name"}</strong>,
+    renderHeader: () => <strong>{"Bildname"}</strong>,
     headerClassName: "super-app-theme--header",
     flex: 1,
     width: 160,
@@ -53,7 +61,7 @@ const columns = [
   {
     field: "img_description",
     headerName: "Description",
-    renderHeader: () => <strong>{"Description"}</strong>,
+    renderHeader: () => <strong>{"Beschreibung"}</strong>,
     headerClassName: "super-app-theme--header",
     width: 160,
     flex: 1,
@@ -66,7 +74,7 @@ const columns = [
   {
     field: "result",
     headerName: "Result",
-    renderHeader: () => <strong>{"Result"}</strong>,
+    renderHeader: () => <strong>{"Ergebnis"}</strong>,
     headerClassName: "super-app-theme--header",
     width: 110,
     flex: 1,

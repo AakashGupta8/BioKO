@@ -7,13 +7,13 @@ import { Link } from 'react-router-dom';
 
 function ProduktEdit() {
     return (
-        <Box component="main" className='analysis'>
+        <Box component="main" >
             <Grid container spacing={2}>
                 <Grid xs={12} >
                     <Paper className='analysis-options' style={{ marginTop: "150px" }}>
                         <Typography className="option-text"> Produkt :DHP
                             <Button>
-                                <Link to="/analyseEdit"> <EditIcon className='edit' /></Link>
+                                <Link to="/user/analyseEdit"> <EditIcon className='edit' /></Link>
                             </Button>
                         </Typography>
                     </Paper>
@@ -27,7 +27,7 @@ function ProduktEdit() {
                 placeholder="Anderungsgrund"
                 style={{ width: "40%" }} />
 
-            <Link to="/analyse" style={{ textDecoration: "none" }}> <button className='btn-analyse'>Andern</button></Link>
+            <Link to="/user/analyse" style={{ textDecoration: "none" }}> <button className='btn-analyse'>Andern</button></Link>
         </Box>
     )
 }

@@ -16,7 +16,7 @@ function CustomToolbar(text) {
 }
 export default function DataGridTable(props) {
   return (
-    <Box sx={{ height: 400, width: "100%" ,marginTop:"80px"}}>
+    <Box sx={{ height: 400, width: "100%" ,marginTop:"10px"}}>
       <DataGrid
         rows={props.row}
         columns={props.column}

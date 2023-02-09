@@ -16,15 +16,15 @@ import { Link } from "react-router-dom";
 // }));
 function Analysis() {
   return (
-    <Box component="main" className="analysis">
+    <Box component="main">
       <Grid container spacing={2}>
-        <Grid xs={12} md={7.5}>
+        <Grid xs={12} md={7.5} style={{marginTop:"20px"}}>
           <Paper className="analysis-options">
             <Typography className="option-text">
               {" "}
               Produkt :DHP
               <Button>
-                <Link to="/analyseEdit">
+                <Link to="/user/analyseEdit">
                   {" "}
                   <EditIcon className="edit" />
                 </Link>
