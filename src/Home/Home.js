@@ -95,7 +95,7 @@ export default function Home() {
       <Grid container>
         <Grid item xs={4}>
           <div style={{ marginTop: "50%" }}>
-            <Button variant="contained" component="label">
+            <Button className="prime-btn" variant="contained" component="label" style={{ marginRight: "2%" }}>
               Hochladen
               <input
                 type="file"
@@ -106,7 +106,7 @@ export default function Home() {
               ></input>
             </Button>
 
-            <Button variant="contained" component="label">
+            <Button className="prime-btn" variant="contained" >
               Analysen
             </Button>
           </div>
@@ -151,9 +151,15 @@ export default function Home() {
                     );
                   })
                 ) : (
-                  <div style={{ justifyContent: "center", display: "flex" }}>
-                    {" "}
-                    Please upload some images
+                  <div
+                    style={{
+                      margin: "auto",
+                      padding: "25vh 0",
+                      color: "#cc0000",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Kein Bild verfügbar
                   </div>
                 )}
                 {/* {preview.map((item) => {
