@@ -18,15 +18,26 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import BayerLogo from "../Images/bayer-cross-black.png";
 import { SidebarData } from "./SidebarData";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, Routes, Route } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { AppContext } from "../App";
-import Grid from "@mui/material/Grid";
 import "./minidrawer.css";
-import { Avatar, InputAdornment, Popover, Stack, TextField } from "@mui/material";
+import {
+  Avatar,
+  InputAdornment,
+  Popover,
+  Stack,
+  TextField,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LogoutIcon from "@mui/icons-material/Logout";
+import ProduktEdit from "../Analysis/ProduktEdit";
+import Home from "../Home/Home";
+import Daten from "../Data/Daten";
+import OffeneAufgaben from "../OffeneAufgaben/OffeneAufgaben";
+import Analysis from "../Analysis/Analysis";
+import AnalysisResult from "../Analysis/AnalysisResult";
 
 const drawerWidth = 240;
 
@@ -95,34 +106,34 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-function stringToColor(string) {
-  let hash = 0;
-  let i;
+// function stringToColor(string) {
+//   let hash = 0;
+//   let i;
 
-  /* eslint-disable no-bitwise */
-  for (i = 0; i < string.length; i += 1) {
-    hash = string.charCodeAt(i) + ((hash << 5) - hash);
-  }
+//   /* eslint-disable no-bitwise */
+//   for (i = 0; i < string.length; i += 1) {
+//     hash = string.charCodeAt(i) + ((hash << 5) - hash);
+//   }
 
-  let color = "#";
+//   let color = "#";
 
-  for (i = 0; i < 3; i += 1) {
-    const value = (hash >> (i * 8)) & 0xff;
-    color += `00${value.toString(16)}`.slice(-2);
-  }
-  /* eslint-enable no-bitwise */
+//   for (i = 0; i < 3; i += 1) {
+//     const value = (hash >> (i * 8)) & 0xff;
+//     color += `00${value.toString(16)}`.slice(-2);
+//   }
+//   /* eslint-enable no-bitwise */
 
-  return color;
-}
+//   return color;
+// }
 
-function stringAvatar(name) {
-  return {
-    sx: {
-      bgcolor: stringToColor(name),
-    },
-    children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
-  };
-}
+// function stringAvatar(name) {
+//   return {
+//     sx: {
+//       bgcolor: stringToColor(name),
+//     },
+//     children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
+//   };
+// }
 
 export default function MiniDrawer() {
   const { graphInfo, account, profilePicture } = React.useContext(AppContext);
@@ -181,7 +192,14 @@ export default function MiniDrawer() {
                   }}
                 />
               </Link>
-              <Typography variant="h4" noWrap component="div" style={{ color: "#5eb346" }}>BioKo</Typography>
+              <Typography
+                variant="h4"
+                noWrap
+                component="div"
+                style={{ color: "#5eb346" }}
+              >
+                BioKo
+              </Typography>
               <Typography
                 style={{ color: "black" }}
                 // variant="h6"
@@ -207,10 +225,10 @@ export default function MiniDrawer() {
               </Typography>
               <div>
                 <Stack direction="row" spacing={2}>
-                <Avatar src={profilePicture} />
+                  <Avatar src={profilePicture} />
                 </Stack>
               </div>
-              
+
               <Typography
                 style={{ color: "black", paddingLeft: "1%", display: "flex" }}
                 // variant="h6"
@@ -218,7 +236,7 @@ export default function MiniDrawer() {
                 component="div"
                 // sx={{ flexGrow: 1 }}
               >
-              {account?.name}
+                {account?.name}
 
                 <ExpandMoreIcon onClick={handleClick} />
                 <Popover
@@ -230,29 +248,35 @@ export default function MiniDrawer() {
                     vertical: "bottom",
                     horizontal: "left",
                   }}
-                 
                 >
                   <Typography
                     sx={{ width: "25vh", height: "6vh" }}
                     component="div"
-                    style={{border: "1px solid #1f1f1f", borderRadius: "5px"}}
+                    style={{ border: "1px solid #1f1f1f", borderRadius: "5px" }}
                   >
                     <div className="logout-popover">
-                  
                       <div className="logout-btn">
-                        <Button endIcon={<LogoutIcon />} style={{color: "black"}}>Ausloggen</Button>
+                        <Button
+                          endIcon={<LogoutIcon />}
+                          style={{ color: "black" }}
+                        >
+                          Ausloggen
+                        </Button>
                       </div>
                     </div>
                   </Typography>
                 </Popover>
               </Typography>
-              
             </Toolbar>
           </AppBar>
           <Drawer variant="permanent" open={open}>
             <DrawerHeader>
               <IconButton onClick={handleDrawerClose}>
-                {theme.direction === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                {theme.direction === "rtl" ? (
+                  <ChevronRightIcon />
+                ) : (
+                  <ChevronLeftIcon />
+                )}
               </IconButton>
             </DrawerHeader>
             <Divider />
@@ -295,10 +319,17 @@ export default function MiniDrawer() {
           </Drawer>
           <Box component="main" sx={{ flexGrow: 1 }}>
             <DrawerHeader />
-            {/* <Box component="main">
-          {location.pathname === "/xy" ? <OffeneAufgaben /> : ""}
-          {location.pathname === "/Ub" ? <OffeneAufgaben /> : ""}
-        </Box> */}
+
+            <Box component="main" sx={{ flexGrow: 1 }}>
+              <Routes>
+                <Route path="table-analyse" element={<OffeneAufgaben />} />
+                <Route path="Home" element={<Home />} />
+                <Route path="analyse" element={<Analysis />} />
+                <Route path="analyseEdit" element={<ProduktEdit />} />
+                <Route path="daten" element={<Daten />} />
+                <Route path="analyseResult" element={<AnalysisResult />} />
+              </Routes>
+            </Box>
           </Box>
         </Box>
       </div>

@@ -5,34 +5,33 @@ import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import SettingsIcon from "@mui/icons-material/Settings";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
-import DataThresholdingIconTwoTone from "@mui/icons-material/DataThresholdingTwoTone";
-import HomeIcon from '@mui/icons-material/Home';
-import TimelineIcon from '@mui/icons-material/Timeline';
+import HomeIcon from "@mui/icons-material/Home";
+import TimelineIcon from "@mui/icons-material/Timeline";
 
 export const SidebarData = [
   {
     title: "Home",
-    path: "/Home",
+    path: "Home",
     icons: <HomeIcon />,
   },
   {
     title: "Offene Aufgaben",
-    path: "/table-analyse",
+    path: "table-analyse",
     icons: <ContentPasteIcon />,
   },
   {
     title: "Analyse",
-    path: "/analyse",
+    path: "analyse",
     icons: <BarChartIcon />,
   },
   {
     title: "Double Check",
-    path: "/double-check",
+    path: "double-check",
     icons: <GroupIcon />,
   },
   {
     title: "Abgeschlossen",
-    path: "/Abgeschlossen",
+    path: "Abgeschlossen",
     icons: <CheckBoxIcon />,
   },
   {
@@ -42,17 +41,17 @@ export const SidebarData = [
   },
   {
     title: "Einstellungen",
-    path: "/Einstellungen",
+    path: "Einstellungen",
     icons: <SettingsIcon />,
   },
   {
     title: "Beenden",
-    path: "/Beenden",
+    path: "Beenden",
     icons: <DirectionsRunIcon />,
   },
   {
     title: "Daten",
-    path: "/daten",
+    path: "daten",
     icons: <TimelineIcon />,
   },
 ];

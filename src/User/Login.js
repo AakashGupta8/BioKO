@@ -28,7 +28,7 @@ export default function Login() {
           />
         </Box>
         <div>
-          <Link to="/Home" style={{ textDecoration: "none" }}>
+          <Link to="/user/Home" style={{ textDecoration: "none" }}>
             {" "}
             <button className="btn-login">Login</button>
           </Link>
