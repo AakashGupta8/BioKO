@@ -15,8 +15,8 @@ function Daten() {
     setExpanded(isExpanded ? panel : false);
   };
   return (
-    <Box component="main" className='daten'>
-    <div>
+    <Box component="main" >
+    <div className='daten'>
     <Accordion
       expanded={expanded === "panel2"}
       onChange={handleChange("panel2")}

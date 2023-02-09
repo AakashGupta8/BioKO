@@ -32,7 +32,7 @@ function AnalysisResult() {
                                 <Paper className='analysis-options' style={{ marginTop: "100px" }}>
                                     <Typography className="option-text"> Produkt :DHP
                                         <Button>
-                                            <Link to="/analyseEdit"> <EditIcon className='edit' /></Link>
+                                            <Link to="/user/analyseEdit"> <EditIcon className='edit' /></Link>
                                         </Button>
                                     </Typography>
                                 </Paper>

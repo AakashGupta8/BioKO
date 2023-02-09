@@ -1,6 +1,6 @@
 .analysis {
     background-color: rgba(108, 126, 148, 1);
-    margin-top: 70px;
+    /* margin-top: 70px; */
 }
 
 .analysis-options {
@@ -24,16 +24,17 @@
     height: 80vh;
 }
 .sample-img{
-    width: 82%;
+    width: 90%;
     height: 12vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .sample-img-success{
-    width: 82%;
+    width: 90%;
     height: 12vh;
     border:10px solid greenyellow
 }
 .sample-img-reject{
-    width: 82%;
+    width: 90%;
     height: 12vh;
     border:10px solid red
 }
