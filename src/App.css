@@ -1,14 +1,14 @@
 .App {
   text-align: center;
-  background-color: #677F8F !important;
-  height: 100vh;
+  background-color: #677f8f !important;
+  /* height: 100vh; */
 }
 
 * {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
 }
 
-.MuiTypography-root{
+.MuiTypography-root {
   font-family: "Roboto", Arial, Helvetica, sans-serif !important;
 }
 
@@ -47,7 +47,6 @@
     transform: translateY(0px);
   }
 }
-.css-zxdg2z 
-{
+.css-zxdg2z {
   padding-bottom: 0px !important;
 }

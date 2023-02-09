@@ -1,8 +1,8 @@
-.upload-img{
-    height: 20vh;
-    width: 10vw;
+.upload-img {
+  height: 100px;
+  width: 100px;
 }
 
-.prime-btn{
-    background-color: #89d329 !important;
+.prime-btn {
+  background-color: #89d329 !important;
 }
