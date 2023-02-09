@@ -1,6 +1,11 @@
-import { Paper, Box } from "@mui/material";
+import { Paper, Box, Chip } from "@mui/material";
 import DataGrid from "../DataGrid/DataGridTable";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+
+const handleClick = () => {
+  Navigate("/user/analyse");
+  // <navigator to={"/user/analyse"}/>
+};
 const columns = [
   //   { field: "id", headerName: "ID", flex: 1 },
   {
@@ -10,12 +15,11 @@ const columns = [
     editable: true,
     headerClassName: "super-app-theme--header",
     renderCell: (params) => (
-      <Link
-        style={{ color: "black", textDecoration: "none" }}
-        to={"/user/analyse"}
-      >
-        {params.value}
-      </Link>
+      <Chip label={params.value} onClick={handleClick}>
+        <Link style={{ color: "black", textDecoration: "none" }} to={"/user/analyse"}>
+          {/* {params.value} */}
+        </Link>
+      </Chip>
     ),
   },
   {
@@ -88,7 +92,7 @@ const rows = [
   },
   {
     id: 2,
-    work_id: "102",
+    work_id: "201",
     produkt: "ADD",
     probe: "Normal",
     fermenter: "HF3",
@@ -99,7 +103,7 @@ const rows = [
   },
   {
     id: 3,
-    work_id: "103",
+    work_id: "301",
     produkt: "DHP",
     probe: "Bestatigung",
     fermenter: "ZF6",
@@ -123,11 +127,7 @@ export default function OffeneAufgaben() {
             },
           }}
         >
-          <DataGrid
-            row={rows}
-            column={columns}
-            name={"Zusammenfassung - Analysen"}
-          />
+          <DataGrid row={rows} column={columns} name={"Zusammenfassung - Analysen"} />
         </Box>
       </Paper>
     </div>
