@@ -5,7 +5,7 @@ import {
   GridToolbarContainer,
   GridToolbarExport,
 } from "@mui/x-data-grid";
-import PDdata from "../Analysis/AnalysisData";
+import PDdata from "./TableData";
 import { Link } from "react-router-dom";
 
 function CustomToolbar() {
