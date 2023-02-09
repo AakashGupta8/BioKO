@@ -17,7 +17,7 @@ export default function OffeneAufgaben() {
       editable: true,
       headerClassName: "super-app-theme--header",
       renderCell: (params) => (
-        <Chip label={params.value} onClick={handleClick}>
+        <Chip label={params.value} onClick={handleClick} color="primary" >
           <Link
             style={{ color: "black", textDecoration: "none" }}
             to={"/user/analyse"}
