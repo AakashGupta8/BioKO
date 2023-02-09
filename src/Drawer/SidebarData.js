@@ -37,7 +37,7 @@ export const SidebarData = [
   },
   {
     title: "Hilfe",
-    path: "/Hilfe",
+    path: "https://bayersi.service-now.com/sp",
     icons: <HelpOutlineIcon />,
   },
   {

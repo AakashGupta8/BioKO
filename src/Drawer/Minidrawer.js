@@ -261,6 +261,7 @@ export default function MiniDrawer() {
                 <ListItem
                   key={text}
                   component={Link}
+                  target= {text.path === "https://bayersi.service-now.com/sp" ? "_blank" : ""}
                   to={text.path}
                   //   state={{ from: "Mehl" }}
                   disablePadding

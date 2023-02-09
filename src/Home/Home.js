@@ -94,7 +94,7 @@ export default function Home() {
       <Grid container>
         <Grid item xs={4}>
           <div style={{ marginTop: "50%" }}>
-            <Button variant="contained" component="label" style={{ marginRight: "2%" }}>
+            <Button className="prime-btn" variant="contained" component="label" style={{ marginRight: "2%" }}>
               Hochladen
               <input
                 type="file"
@@ -105,7 +105,7 @@ export default function Home() {
               ></input>
             </Button>
 
-            <Button variant="contained" component="label">
+            <Button className="prime-btn" variant="contained" >
               Analysen
             </Button>
           </div>

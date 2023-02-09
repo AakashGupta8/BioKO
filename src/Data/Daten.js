@@ -20,7 +20,7 @@ function Daten() {
     <Accordion
       expanded={expanded === "panel2"}
       onChange={handleChange("panel2")}
-      style={{ backgroundColor: "#004422" }}
+      style={{ backgroundColor: "#5EB346" }}
     >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}

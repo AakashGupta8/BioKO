@@ -99,7 +99,7 @@ function App() {
               display: "flex",
               width: "100%",
               height: "100vh",
-              backgroundColor: "#6c7e94",
+              backgroundColor: "#677F8F",
             }}
           >
             <MiniDrawer />
