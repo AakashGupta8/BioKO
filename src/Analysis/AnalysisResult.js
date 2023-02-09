@@ -15,7 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 function AnalysisResult() {
     return (
-        <Box component="main" className='analysis'>
+        <Box component="main" >
             <Grid container spacing={2}>
                 <Grid xs={12} md={7.5}>
                     <Box component="main" >
