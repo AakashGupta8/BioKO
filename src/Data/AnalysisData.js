@@ -101,7 +101,7 @@ function AnalysisData() {
             "& > :not(style)": {
               m: 1,
               width: "100%",
-              // height: "450px",
+              height: "450px",
             },
           }}
         >
