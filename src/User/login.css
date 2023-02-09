@@ -1,6 +1,6 @@
 .bg-login {
     background-color: #013e46;
-    background-image: -webkit-linear-gradient(30deg, #013e46 60%, #fff 40%);
+    background-image: -webkit-linear-gradient(0deg, #fff 50%, #677F8F 30%);
     height: 100vh;
 }
 .bg-login-mob {
@@ -9,9 +9,9 @@
     height: 100vh;
 }
 .login-logo{
-    top:22%;
-    height:14vh;
-    right: 13%;
+    top:12%;
+    height:25vh;
+    right: 22%;
     position: absolute;
 
 }
@@ -32,15 +32,34 @@
     border: none;
     text-decoration: none;
     font-weight: 700;
-    background-color: #b9bdd8;
+    background-color: #677F8F;
+}
+.title1{
+    top: 46%;
+    position: absolute;
+    right: 42%;
+    /* font-size: 3rem !important; */
+    letter-spacing: 2px;
+    color: #00bcff;
+    font-weight: bold;
+}
+.title-mob1{
+    top: 22%;
+    position: absolute;
+    right: 6%;
+    /* font-size: 3rem !important; */
+    letter-spacing: 2px;
+    color: #00bcff;
+    font-weight: bold;
 }
 .title{
-    top: 38%;
+    top: 40%;
     position: absolute;
-    right: 12%;
-    font-size: 3rem !important;
+    right: 25%;
+    /* font-size: 3rem !important; */
     letter-spacing: 2px;
     color: yellowgreen;
+    font-weight: bold;
 }
 .title-mob{
     top: 22%;
@@ -49,10 +68,28 @@
     font-size: 3rem !important;
     letter-spacing: 2px;
     color: yellowgreen;
+    font-weight: bold;
+}
+.sub-title{
+    top: 60%;
+    position: absolute;
+    right: 27%;
+    /* font-size: 3rem !important; */
+    letter-spacing: 2px;
+    color: #fff;
+}
+.sub-title-mob{
+    top: 24%;
+    position: absolute;
+    right: 6%;
+    /* font-size: 3rem !important; */
+    letter-spacing: 2px;
+    color: #fff;
 }
 .textfield{
     background-color: #fff;
-    margin: 12px!important;
+    margin-bottom: 2% !important;
+    /* margin: 12px!important; */
     width: 400px;
     border-radius: 10px;
 }
@@ -65,12 +102,23 @@
 .login-form{
     flex: 0.5;
     position: absolute;
-    top: 36%;
+    top: 30%;
     left: 20%;
+    text-align: start !important;
 }
 .login-form-mob{
     flex: 0.5;
     position: absolute;
     top: 38%;
     left: 8%;
+}
+.left-heading{
+    color: #677F8F;
+    font-weight: bolder !important;
+    margin-bottom: 5% !important;
+}
+.left-sub-heading{
+    color: #677F8F;
+    font-weight: bold !important;
+    margin-bottom: 5% !important;
 }

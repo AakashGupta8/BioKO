@@ -11,20 +11,25 @@ export default function Login() {
       style={{ display: "flex" }}
     >
       <div className={!isMobile ? "login-form" : "login-form-mob"}>
+        <Typography variant="h3" className="left-heading">Login</Typography>
+        <Typography variant="caption" className="left-sub-heading">Login um  Klbioko zu starten</Typography>
         <Box>
           <TextField
             id="filled-basic"
-            label="Username"
+            label="CWID"
             variant="outlined"
             className={!isMobile ? "textfield" : "textfield-mob"}
+            style={{marginTop: "5%"}}
+            size="small"
           />
         </Box>
         <Box>
           <TextField
             id="filled-basic"
-            label="PassWord"
+            label="Passwort"
             variant="outlined"
             className={!isMobile ? "textfield" : "textfield-mob"}
+            size="small"
           />
         </Box>
         <div>
@@ -40,8 +45,14 @@ export default function Login() {
           alt="logo"
           className={!isMobile ? "login-logo" : "login-logo-mob"}
         />
-        <Typography className={!isMobile ? "title" : "title-mob"}>
-          BioKO
+        <Typography variant="h1" className={!isMobile ? "title1" : "title-mob1"}>
+          Kl
+        </Typography>
+        <Typography variant="h1" className={!isMobile ? "title" : "title-mob"}>
+          bioko
+        </Typography>
+        <Typography variant="h6" className={!isMobile ? "sub-title" : "sub-title-mob"}>
+          Kl fur biologische kontaminationen
         </Typography>
       </div>
     </div>
