@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Box, Paper, Grid, Button } from "@mui/material";
+import { Box, Paper, Grid, Button, Typography } from "@mui/material";
 import "./home.css";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
 
 const MAX_COUNT = 8;
 export default function Home() {
@@ -95,7 +98,12 @@ export default function Home() {
       <Grid container>
         <Grid item xs={4}>
           <div style={{ marginTop: "50%" }}>
-            <Button className="prime-btn" variant="contained" component="label" style={{ marginRight: "2%" }}>
+            <Button
+              className="prime-btn"
+              variant="contained"
+              component="label"
+              style={{ marginRight: "2%" }}
+            >
               Hochladen
               <input
                 type="file"
@@ -106,13 +114,77 @@ export default function Home() {
               ></input>
             </Button>
 
-            <Button className="prime-btn" variant="contained" >
+            <Button className="prime-btn" variant="contained">
               Analysen
             </Button>
           </div>
         </Grid>
         <Grid item xs={6}>
-          <Box
+          <Box component="main" sx={{ flexGrow: 1, p: 1 }}>
+            {/* <div className="card-item"> */}
+            <Grid container spacing={1}>
+              {preview.length > 0 ? (
+                preview.map((item) => {
+                  return (
+                    <Grid item xs={4} md={3} className="grid-card">
+                      <Box style={{ width: "100%" }}>
+                        <Card variant="outlined">
+                          <React.Fragment>
+                            <CardContent>
+                              <img
+                                className="upload-img"
+                                src={item}
+                                href={item}
+                                style={{
+                                  // marginRight: "10%",
+                                  cursor: "pointer",
+                                  border: "1px solid #1f1f1f",
+                                }}
+                                onClick={(e) => download(e)}
+                                target="_blank"
+                                download="file"
+                                alt="img"
+                              />
+                            </CardContent>
+                          </React.Fragment>
+                        </Card>
+                      </Box>
+                    </Grid>
+                  );
+                })
+              ) : (
+                <Grid container>
+                  <Grid item xs={12} md={12}>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        "& > :not(style)": {
+                          m: 5,
+                          width: "100%",
+                          // height: "82vh",
+                        },
+                      }}
+                    >
+                      <Paper elevation={3}>
+                        <div
+                          style={{
+                            // margin: "auto",
+                            padding: "34vh 0",
+                            color: "#cc0000",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          Kein Bild verfügbar
+                        </div>
+                      </Paper>
+                    </Box>
+                  </Grid>
+                </Grid>
+              )}
+            </Grid>
+          </Box>
+          {/* <Box
             sx={{
               display: "flex",
               flexWrap: "wrap",
@@ -162,25 +234,10 @@ export default function Home() {
                     Kein Bild verfügbar
                   </div>
                 )}
-                {/* {preview.map((item) => {
-                  return (
-                    <Grid item xs={3}>
-                      <img
-                        className="sample-img"
-                        src={item}
-                        href={item}
-                        style={{ marginRight: "10%" }}
-                        onClick={(e) => download(e)}
-                        target="_blank"
-                        download="file"
-                        alt=""
-                      />
-                    </Grid>
-                  );
-                })} */}
+               
               </Grid>
             </Paper>
-          </Box>
+          </Box> */}
         </Grid>
       </Grid>
     </div>
