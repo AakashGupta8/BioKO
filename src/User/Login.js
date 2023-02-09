@@ -27,6 +27,7 @@ export default function Login() {
           <TextField
             id="filled-basic"
             label="Passwort"
+            type="password"
             variant="outlined"
             className={!isMobile ? "textfield" : "textfield-mob"}
             size="small"
