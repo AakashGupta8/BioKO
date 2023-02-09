@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Box, Paper, Typography, Grid, Button } from "@mui/material";
+import { Box, Paper, Grid, Button } from "@mui/material";
 import "./home.css";
 
 const MAX_COUNT = 8;
 export default function Home() {
   const [uploadedFiles, setUploadedFiles] = useState([]);
-  const [fileLimit, setFileLimit] = useState(false);
+  //   const [fileLimit, setFileLimit] = useState(false);
   const [preview, setPreview] = useState([]);
 
   const handleFileEvent = (e) => {
@@ -19,13 +19,14 @@ export default function Home() {
     files.some((file) => {
       if (uploaded.findIndex((f) => f.name === file.name) === -1) {
         uploaded.push(file);
-        if (uploaded.length === MAX_COUNT) setFileLimit(true);
-        if (uploaded.length > MAX_COUNT) {
-          alert(`You can only add maximum of ${MAX_COUNT} files`);
-          setFileLimit(false);
-          limitExceeded = true;
-          return true;
-        }
+        if (uploaded.length === MAX_COUNT)
+          if (uploaded.length > MAX_COUNT) {
+            // setFileLimit(true);
+            alert(`You can only add maximum of ${MAX_COUNT} files`);
+            //   setFileLimit(false);
+            limitExceeded = true;
+            return true;
+          }
       }
       return false;
     });
@@ -90,11 +91,11 @@ export default function Home() {
   }
 
   return (
-    <div style={{ marginTop: "80px" }}>
+    <div>
       <Grid container>
         <Grid item xs={4}>
           <div style={{ marginTop: "50%" }}>
-            <Button variant="contained" component="label" style={{ marginRight: "2%" }}>
+            <Button variant="contained" component="label">
               Hochladen
               <input
                 type="file"
@@ -123,7 +124,11 @@ export default function Home() {
             }}
           >
             <Paper elevation={3}>
-              <Grid container spacing={2} style={{ margin: "14px 0px", width: "100%" }}>
+              <Grid
+                container
+                spacing={2}
+                style={{ margin: "14px 0px", width: "100%" }}
+              >
                 {preview.length > 0 ? (
                   preview.map((item) => {
                     return (

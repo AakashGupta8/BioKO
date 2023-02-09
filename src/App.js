@@ -14,16 +14,10 @@ import {
 } from "@azure/msal-browser";
 import { loginRequest } from "./authConfig";
 import { getAuthHeader, toBase64Browser } from "./utils";
-import { Box, Grid } from "@mui/material";
-import Analysis from "./Analysis/Analysis";
-import AnalysisResult from "./Analysis/AnalysisResult";
+import { Box } from "@mui/material";
 import MiniDrawer from "./Drawer/Minidrawer";
-import { Routes, Route, Link } from "react-router-dom";
-import OffeneAufgaben from "./OffeneAufgaben/OffeneAufgaben";
+import { Routes, Route } from "react-router-dom";
 import Login from "./User/Login";
-import ProduktEdit from "./Analysis/ProduktEdit";
-import Home from "./Home/Home";
-import Daten from "./Data/Daten";
 
 export const AppContext = createContext({});
 function App() {
@@ -94,7 +88,7 @@ function App() {
     >
       <AuthenticatedTemplate>
         <div className="App">
-          <Box
+          {/* <Box
             sx={{
               display: "flex",
               width: "100%",
@@ -108,10 +102,11 @@ function App() {
                 width: "100%",
                 paddingRight: "1.5%",
               }}
-            >
-              <Routes>
-                <Route exact path="/" element={<Login />} />
-                <Route
+            > */}
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/user/*" element={<MiniDrawer />} />
+            {/* <Route
                   exact
                   path="/table-analyse"
                   element={<OffeneAufgaben />}
@@ -124,10 +119,10 @@ function App() {
                   exact
                   path="/analyseResult"
                   element={<AnalysisResult />}
-                />
-              </Routes>
-            </div>
-          </Box>
+                /> */}
+          </Routes>
+          {/* </div>
+          </Box> */}
         </div>
 
         {/*<button  onClick={() => {
