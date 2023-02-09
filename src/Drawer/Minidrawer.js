@@ -18,6 +18,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import BayerLogo from "../Images/bayer-cross-black.png";
 import { SidebarData } from "./SidebarData";
+import { SidebarDataDown } from "./SidebarDataDown";
 import { Link, useLocation, Routes, Route } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { AppContext } from "../App";
@@ -196,9 +197,17 @@ export default function MiniDrawer() {
                 variant="h4"
                 noWrap
                 component="div"
+                style={{ color: "#00bcff" }}
+              >
+                Kl
+              </Typography>
+              <Typography
+                variant="h4"
+                noWrap
+                component="div"
                 style={{ color: "#5eb346" }}
               >
-                BioKo
+                bioko
               </Typography>
               <Typography
                 style={{ color: "black" }}
@@ -316,14 +325,50 @@ export default function MiniDrawer() {
                 </ListItem>
               ))}
             </List>
+            <Divider />
+            <List style={{ marginTop: "20%" }}>
+              {SidebarDataDown.map((text, index) => (
+                <ListItem
+                  key={text}
+                  component={Link}
+                  target= {text.path === "https://bayersi.service-now.com/sp" ? "_blank" : ""}
+                  to={text.path}
+                  //   state={{ from: "Mehl" }}
+                  disablePadding
+                  sx={{ display: "block" }}
+                >
+                  <ListItemButton
+                    // onClick={() => handleListItemClick(text)}
+                    sx={{
+                      minHeight: 48,
+                      justifyContent: open ? "initial" : "center",
+                      px: 2.5,
+                    }}
+                  >
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : "auto",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {text.icons}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={text.title}
+                      sx={{ opacity: open ? 1 : 0, color: "#1f1f1f" }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
           </Drawer>
           <Box component="main" sx={{ flexGrow: 1 }}>
             <DrawerHeader />
-
             <Box component="main" sx={{ flexGrow: 1 }}>
               <Routes>
                 <Route path="table-analyse" element={<OffeneAufgaben />} />
-                <Route path="Home" element={<Home />} />
+                <Route path="upload" element={<Home />} />
                 <Route path="analyse" element={<Analysis />} />
                 <Route path="analyseEdit" element={<ProduktEdit />} />
                 <Route path="daten" element={<Daten />} />
