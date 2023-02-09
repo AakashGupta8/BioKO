@@ -196,9 +196,17 @@ export default function MiniDrawer() {
                 variant="h4"
                 noWrap
                 component="div"
+                style={{ color: "#00bcff" }}
+              >
+                Kl
+              </Typography>
+              <Typography
+                variant="h4"
+                noWrap
+                component="div"
                 style={{ color: "#5eb346" }}
               >
-                BioKo
+                bioko
               </Typography>
               <Typography
                 style={{ color: "black" }}
